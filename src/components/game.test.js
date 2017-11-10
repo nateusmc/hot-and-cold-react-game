@@ -10,11 +10,10 @@ describe('<Game />', () => {
 
     it('Can starts a new game', () => {
         const wrapper = shallow(<Game />);
-        // Mess up the state a bit to simulate an existing game
         wrapper.setState({
             guesses: [1, 2, 3, 4],
             feedback: 'Awesome',
-            correctAnswer: -1 // Negative so different to new game
+            correctAnswer: -1
         });
         wrapper.instance().newGame();
         expect(wrapper.state('guesses')).toEqual([]);
@@ -25,7 +24,6 @@ describe('<Game />', () => {
 
     it('Can make guesses', () => {
         const wrapper = shallow(<Game />);
-        // Set the correctAnswer so we know what we're aiming for
         wrapper.setState({
             correctAnswer: 100
         });
